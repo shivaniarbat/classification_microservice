@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: testing
+  labels:
+    app: image-classifier
+  name: image-classifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-classifier
+  template:
+    metadata:
+      labels:
+        app: image-classifier
+    spec: 
+      containers:
+      - image: shivaniarbat/image-classifier:latest
+        name: image-classifier
